@@ -26,37 +26,74 @@
 <body>
 
   <!-- =========================================================
-       HEADER
+       HEADER — Red announcement bar + floating pill navbar
        ========================================================= -->
   <header class="site-header" id="siteHeader">
-    <div class="wrap nav-wrap">
 
-      <a href="#hero" class="brand-tce-logo">
-        <span class="brand-badge-red">TCE</span>
-        <span>The Crazy Entrepreneur</span>
-      </a>
-
-      <nav id="mainNav">
-        <ul class="nav-links">
-          <li><a href="#services"  class="nav-link">Services</a></li>
-          <li><a href="#process"   class="nav-link">Process</a></li>
-          <li><a href="#whyus"     class="nav-link">Why Us</a></li>
-          <li><a href="#clientele" class="nav-link">Clientele</a></li>
-          <li><a href="#network"   class="nav-link">Network</a></li>
-          <li><a href="#contact"   class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
-        <a href="#contact" class="btn-tce-red">
-          Book A Call <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle navigation">
-          <i class="fa-solid fa-bars" id="navIcon"></i>
-        </button>
-      </div>
-
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="nav-announce-bar">
+      OUR TEAM WILL ONLY EVER REACH OUT FROM OUR&nbsp;
+      <strong>@THECRAZYENTREPRENEUR.COM</strong>&nbsp;EMAIL
     </div>
+
+    <!-- FLOATING PILL NAV -->
+    <div class="nav-pill-wrap">
+      <div class="nav-pill">
+
+        <!-- Logo -->
+        <a href="#hero" class="nav-logo" aria-label="TCE Home">
+          <div class="nav-logo-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="18" fill="#1a1a1a"/>
+              <circle cx="18" cy="18" r="14" fill="none" stroke="#cc0000" stroke-width="2"/>
+              <text x="18" y="23" text-anchor="middle" fill="#fff" font-family="Outfit,sans-serif" font-size="9" font-weight="900">TCE</text>
+            </svg>
+          </div>
+          <div class="nav-logo-text">
+            <span class="logo-the">THE</span>
+            <span class="logo-crazy">CRAZY</span>
+            <span class="logo-ent">ENTREPRENEUR</span>
+          </div>
+        </a>
+
+        <!-- Desktop nav links -->
+        <nav id="mainNav">
+          <ul class="nav-links">
+            <li><a href="#hero"      class="nav-link">Home</a></li>
+            <li><a href="#whyus"     class="nav-link">About</a></li>
+            <li><a href="#services"  class="nav-link">Services</a></li>
+            <li><a href="#network"   class="nav-link">Industries</a></li>
+            <li><a href="#contact"   class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- CTA + hamburger -->
+        <div class="nav-actions">
+          <a href="#contact" class="btn-nav-red" id="navCta">
+            Get in touch&nbsp;<span style="font-size:1.1em;">↗</span>
+          </a>
+          <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars" id="navIcon"></i>
+          </button>
+        </div><!-- /.nav-actions -->
+
+      </div><!-- /.nav-pill -->
+
+      <!-- Mobile drawer -->
+      <div class="nav-mobile-drawer" id="navDrawer">
+        <ul class="nav-drawer-links">
+          <li><a href="#hero"     class="nav-drawer-link" data-navclose>Home</a></li>
+          <li><a href="#whyus"    class="nav-drawer-link" data-navclose>About</a></li>
+          <li><a href="#services" class="nav-drawer-link" data-navclose>Services</a></li>
+          <li><a href="#network"  class="nav-drawer-link" data-navclose>Industries</a></li>
+          <li><a href="#contact"  class="nav-drawer-link" data-navclose>Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-nav-red" style="margin-top:10px;width:100%;justify-content:center;" data-navclose>
+          Get in touch ↗
+        </a>
+      </div><!-- /.nav-mobile-drawer -->
+
+    </div><!-- /.nav-pill-wrap -->
   </header>
 
   <!-- =========================================================
@@ -108,6 +145,12 @@
           </div>
           <div class="tilted-photo-card card-3">
             <img src="images/red_case.jpg" alt="Apparel creator activation">
+          </div>
+          <div class="tilted-photo-card card-4">
+            <img src="images/story2.jpg" alt="Luxury creator reel">
+          </div>
+          <div class="tilted-photo-card card-5">
+            <img src="images/luxury_hero.jpg" alt="Performance campaign">
           </div>
         </div>
 
@@ -286,24 +329,93 @@
   </section>
 
   <!-- =========================================================
-       GLOBAL NETWORK
+       LEADING INFLUENCERS SLIDER
        ========================================================= -->
-  <section class="sec-light" id="network">
+  <section class="sec-black" id="influencers">
     <div class="wrap">
-      <div class="regions-grid">
-        <div class="regions-text">
-          <span class="eyebrow-red">GLOBAL COVERAGE</span>
-          <h2 class="region-heading" id="regionTitle">GLOBAL REACH (160+ MARKETS)</h2>
-          <p class="region-desc" id="regionDesc">
-            Direct execution across North America, Europe, MENA, APAC, and LATAM with 1M+ vetted creators and localised campaign managers.
-          </p>
+      <div class="inf-head-row">
+        <h2 class="inf-title">We partner with <br><span>leading influencers</span></h2>
+        <div class="inf-slider-controls">
+          <button class="inf-arrow-btn prev" id="infPrevBtn" onclick="slideInfluencer('prev')" aria-label="Previous influencer"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="inf-arrow-btn next" id="infNextBtn" onclick="slideInfluencer('next')" aria-label="Next influencer"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+      </div>
 
-        <div class="region-tabs">
-          <button class="r-tab active" data-region="global">GLOBAL (160+ Markets)</button>
-          <button class="r-tab" data-region="apac">APAC HUB</button>
-          <button class="r-tab" data-region="emea">EMEA HUB</button>
-          <button class="r-tab" data-region="americas">AMERICAS HUB</button>
+      <div class="inf-slider-container" id="infSliderContainer">
+        <div class="inf-slider-track" id="infSliderTrack">
+          
+          <div class="inf-card">
+            <img src="images/influencer_1.jpg" alt="Brent Rivera">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Brent Rivera</div>
+              <div class="inf-followers">113M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_2.jpg" alt="Anwar Jibawi">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Anwar Jibawi</div>
+              <div class="inf-followers">47M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_3.jpg" alt="Brooke Monk">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Brooke Monk</div>
+              <div class="inf-followers">80M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_4.jpg" alt="Maya Lin">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Maya Lin</div>
+              <div class="inf-followers">62M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_5.jpg" alt="Kai Cenat">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Kai Cenat</div>
+              <div class="inf-followers">95M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_6.jpg" alt="Zach King">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Zach King</div>
+              <div class="inf-followers">82M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_7.jpg" alt="Sophia Grace">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Sophia Grace</div>
+              <div class="inf-followers">38M Social Media Followers</div>
+            </div>
+          </div>
+
+          <div class="inf-card">
+            <img src="images/influencer_8.jpg" alt="Leo Fitness">
+            <div class="inf-overlay"></div>
+            <div class="inf-info">
+              <div class="inf-name">Leo Fitness</div>
+              <div class="inf-followers">51M Social Media Followers</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -384,76 +496,64 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       FOUNDER TESTIMONIALS
-       ========================================================= -->
-  <section class="sec-pink">
-    <div class="wrap">
-      <div class="testimonials-grid">
-        <div class="testimonials-left">
-          <span class="red-label">FOUNDER</span>
-          <span style="font-family:var(--font-h);font-weight:900;font-size:clamp(2.4rem,5vw,3.6rem);text-transform:uppercase;display:block;">TESTIMONIALS</span>
-          <p style="color:var(--txt-muted);margin-top:14px;">Trusted by venture-backed founders &amp; CMOs globally.</p>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "TCE delivered the single highest-performing creator campaign in our company's history. Their 24-hour launch team and performance whitelisting scaled our ROAS to 8.4x."
-          </p>
-          <div class="testimonial-stars">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-          <div class="testimonial-author">FOUNDER &amp; CEO, GLOBAL CONSUMER BRAND</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        GET FREE PLAN + FAQ
        ========================================================= -->
-  <section class="sec-white" id="freeplan">
+  <section class="faq-section-new" id="freeplan">
     <div class="wrap">
-      <div class="freeplan-faq-grid">
 
-        <!-- Left: plan form -->
-        <div class="plan-card">
-          <h2>GET YOUR FREE PLAN</h2>
-          <span class="plan-badge">RECEIVE CUSTOM CREATOR SHORTLIST IN 24H</span>
+      <!-- Giant FAQ heading -->
+      <h2 class="faq-giant-title">FAQ</h2>
 
-          <form id="freePlanForm">
-            <input type="text"  placeholder="Your Name *"       required>
-            <input type="email" placeholder="Work Email *"      required>
-            <input type="text"  placeholder="Company Website *" required>
-            <textarea placeholder="Briefly describe your product &amp; goal..."></textarea>
-            <button type="submit" class="btn-tce-red" style="width:100%;justify-content:center;">
-              Get Free Plan
-            </button>
-          </form>
+      <!-- 2-column accordion grid -->
+      <div class="faq-two-col">
+
+        <!-- Left column -->
+        <div class="faq-col">
+          <div class="faq-item-red open" data-faqred>
+            <div class="faq-item-q">HOW CAN I COLLABORATE WITH TCE AS A BRAND? <i class="fa-solid fa-arrow-up"></i></div>
+            <div class="faq-item-a">Connect with our global partnerships team through our contact form. We'll help you design and execute a campaign that delivers ROI and brand impact.</div>
+          </div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">WHICH PLATFORMS DO YOU COVER? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">TikTok, Instagram, YouTube, LinkedIn, X (Twitter), Snapchat, Pinterest, and emerging platforms — across 160+ markets.</div>
+          </div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">DO YOU WORK WITH SMALL BUDGETS? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">Yes. We work with budgets from $5k micro-campaigns all the way up to $250k+ global enterprise activations.</div>
+          </div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">HOW DO YOU SELECT THE RIGHT INFLUENCERS FOR A CAMPAIGN? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">We use AI-powered audience analytics, engagement quality scoring, and brand-fit matching to shortlist only the most relevant creators.</div>
+          </div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">WHAT TYPES OF INFLUENCERS DO YOU WORK WITH? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">Nano, Micro, Mid-tier, Macro, and Celebrity creators across all verticals — from tech and finance to fashion and lifestyle.</div>
+          </div>
         </div>
 
-        <!-- Right: FAQ -->
-        <div class="faq-card">
-          <h2>FAQ</h2>
-          <p class="faq-sub">QUESTIONS &amp; ANSWERS</p>
-
-          <div class="faq-row active" data-faq>
-            <div class="faq-q">HOW FAST WILL TCE RESPOND? <i class="fa-solid fa-plus"></i></div>
-            <div class="faq-a">Qualified inquiries receive a response and campaign roadmap within 24 hours.</div>
+        <!-- Right column -->
+        <div class="faq-col">
+          <div class="faq-item-red open" data-faqred>
+            <div class="faq-item-q">CAN CAMPAIGNS BE CUSTOMIZED FOR MY BRAND? <i class="fa-solid fa-arrow-up"></i></div>
+            <div class="faq-item-a">Absolutely. Every campaign we create is fully tailored to your brand's goals, audience, and voice. From influencer selection and content style to platforms and messaging, we design strategies that align with your objectives—whether it's awareness, engagement, or conversions.</div>
           </div>
-          <div class="faq-row" data-faq>
-            <div class="faq-q">WHICH MARKETS DOES TCE SUPPORT? <i class="fa-solid fa-plus"></i></div>
-            <div class="faq-a">TCE supports creator campaigns across 160+ markets in 32 languages.</div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">DO YOU HELP WITH CONTENT STRATEGY AND CREATIVE DIRECTION? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">Yes. Our creative team develops full content briefs, hooks, storyboards, and post-production quality reviews for every campaign.</div>
           </div>
-          <div class="faq-row" data-faq>
-            <div class="faq-q">CAN CREATORS APPLY HERE? <i class="fa-solid fa-plus"></i></div>
-            <div class="faq-a">Yes. Select the Creator tab in the form below and share your profile links.</div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">HOW DO YOU MEASURE ROI FROM INFLUENCER CAMPAIGNS? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">We track EMV, ROAS, CPE, CPM, traffic attribution, and conversion data through our real-time analytics dashboard.</div>
           </div>
-          <div class="faq-row" data-faq>
-            <div class="faq-q">IS THIS FOR ENTERPRISE CAMPAIGNS? <i class="fa-solid fa-plus"></i></div>
-            <div class="faq-a">Yes. We manage campaigns from $25k up to $250k+ enterprise global deployments.</div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">WHY SHOULD I CHOOSE AN AGENCY INSTEAD OF MANAGING INFLUENCERS IN-HOUSE? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">TCE gives you immediate access to 1M+ vetted creators, legal contracts, fraud detection, and a full campaign team — for a fraction of in-house costs.</div>
+          </div>
+          <div class="faq-item-red" data-faqred>
+            <div class="faq-item-q">HOW DO YOU ENSURE CAMPAIGNS RUN SMOOTHLY FROM START TO FINISH? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-item-a">A dedicated account manager oversees every milestone — from creator outreach and contracts to content approvals and final reporting.</div>
           </div>
         </div>
 
@@ -686,19 +786,19 @@
 
     /* --- Mobile nav toggle --- */
     const toggle  = document.getElementById('navToggle');
-    const nav     = document.getElementById('mainNav');
+    const drawer  = document.getElementById('navDrawer');
     const navIcon = document.getElementById('navIcon');
 
     toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+      drawer.classList.toggle('open');
       navIcon.classList.toggle('fa-bars');
       navIcon.classList.toggle('fa-xmark');
     });
 
-    /* Close nav when a link is clicked */
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
+    /* Close drawer when any drawer link or CTA is clicked */
+    document.querySelectorAll('[data-navclose]').forEach(el => {
+      el.addEventListener('click', () => {
+        drawer.classList.remove('open');
         navIcon.classList.add('fa-bars');
         navIcon.classList.remove('fa-xmark');
       });
@@ -713,14 +813,14 @@
       clockHongKong: 'Asia/Hong_Kong'
     };
     function tickClocks() {
-      const opts = { hour: '2-digit', minute: '2-digit', hour12: true };
+      const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
       Object.keys(clocks).forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = new Date().toLocaleTimeString('en-US', { timeZone: clocks[id], ...opts });
       });
     }
     tickClocks();
-    setInterval(tickClocks, 10000);
+    setInterval(tickClocks, 1000);
 
     /* --- Contact Form Flows --- */
     const baseFields = [
@@ -854,7 +954,7 @@
       });
     });
 
-    /* --- FAQ accordion --- */
+    /* --- FAQ accordion (old dark style) --- */
     document.querySelectorAll('[data-faq]').forEach(row => {
       row.querySelector('.faq-q').addEventListener('click', () => {
         const isOpen = row.classList.contains('active');
@@ -863,8 +963,133 @@
       });
     });
 
+
+    /* --- Red FAQ accordion (new 2-col style) --- */
+    document.querySelectorAll('[data-faqred]').forEach(item => {
+      item.querySelector('.faq-item-q').addEventListener('click', () => {
+        item.classList.toggle('open');
+        const icon = item.querySelector('.faq-item-q i');
+        if (icon) {
+          if (item.classList.contains('open')) {
+            icon.className = 'fa-solid fa-arrow-up';
+          } else {
+            icon.className = 'fa-solid fa-chevron-down';
+          }
+        }
+      });
+    });
+
+    /* --- Influencers Slider Mouse Drag --- */
+    const infContainer = document.getElementById('infSliderContainer');
+    if (infContainer) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      infContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        infContainer.style.cursor = 'grabbing';
+        startX = e.pageX - infContainer.offsetLeft;
+        scrollLeft = infContainer.scrollLeft;
+      });
+      infContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        infContainer.style.cursor = 'grab';
+      });
+      infContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        infContainer.style.cursor = 'grab';
+      });
+      infContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - infContainer.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        infContainer.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    /* --- Timed 5-Second Popup Modal --- */
+    setTimeout(() => {
+      const timedModal = document.getElementById('timedLeadModal');
+      if (timedModal) {
+        timedModal.classList.add('active');
+      }
+    }, 5000);
+
+    const timedModalClose = document.getElementById('leadModalClose');
+    const timedModal = document.getElementById('timedLeadModal');
+    if (timedModalClose && timedModal) {
+      timedModalClose.addEventListener('click', () => {
+        timedModal.classList.remove('active');
+      });
+
+      timedModal.addEventListener('click', (e) => {
+        if (e.target === timedModal) {
+          timedModal.classList.remove('active');
+        }
+      });
+    }
+
+    const popCtaBtn = document.getElementById('popCtaBtn');
+    if (popCtaBtn && timedModal) {
+      popCtaBtn.addEventListener('click', () => {
+        timedModal.classList.remove('active');
+      });
+    }
+
   });
+
+  /* Global function for Influencers Slider Arrows */
+  function slideInfluencer(direction) {
+    const container = document.getElementById('infSliderContainer');
+    if (!container) return;
+    const amount = 350;
+    if (direction === 'next') {
+      container.scrollBy({ left: amount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: -amount, behavior: 'smooth' });
+    }
+  }
   </script>
+
+  <!-- =========================================================
+       TIMED POPUP MODAL (Triggers after 5 seconds - Reference Match)
+       ========================================================= -->
+  <div class="lead-modal-overlay" id="timedLeadModal" aria-hidden="true">
+    <div class="lead-modal-box">
+      <!-- Close button top-right -->
+      <button class="lead-modal-close-sq" id="leadModalClose" aria-label="Close popup">&times;</button>
+      
+      <!-- Overlapping 3 creator avatar circles -->
+      <div class="pop-avatars-row">
+        <div class="pop-avatar-circle"><img src="images/influencer_1.jpg" alt="Creator 1"></div>
+        <div class="pop-avatar-circle"><img src="images/influencer_3.jpg" alt="Creator 2"></div>
+        <div class="pop-avatar-circle"><img src="images/influencer_5.jpg" alt="Creator 3"></div>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="pop-headline">
+        <span class="pop-hl-white">BUILT FOR CREATORS</span>
+        <span class="pop-hl-red">BACKED BY RESULTS</span>
+      </h2>
+
+      <!-- Description -->
+      <p class="pop-desc">
+        We craft game-changing strategies with social-first talent, creating scroll-stopping content that drives results.
+      </p>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="btn-tce-red pop-cta-btn" id="popCtaBtn">
+        START A CAMPAIGN TODAY
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
 </body>
 </html>
