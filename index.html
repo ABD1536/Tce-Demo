@@ -48,18 +48,7 @@
 
         <!-- Logo -->
         <a href="#hero" class="nav-logo" aria-label="TCE Home">
-          <div class="nav-logo-icon">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="18" r="18" fill="#1a1a1a"/>
-              <circle cx="18" cy="18" r="14" fill="none" stroke="#cc0000" stroke-width="2"/>
-              <text x="18" y="23" text-anchor="middle" fill="#fff" font-family="Outfit,sans-serif" font-size="9" font-weight="900">TCE</text>
-            </svg>
-          </div>
-          <div class="nav-logo-text">
-            <span class="logo-the">THE</span>
-            <span class="logo-crazy">CRAZY</span>
-            <span class="logo-ent">ENTREPRENEUR</span>
-          </div>
+          <img src="Logo/tce_logo_wide_black-768x184-2-1.webp" alt="The Crazy Entrepreneur Logo" class="brand-logo-img">
         </a>
 
         <!-- Desktop nav links -->
@@ -94,18 +83,8 @@
   <div class="mob-menu-overlay" id="mobMenuOverlay" aria-hidden="true">
     <!-- Top pill bar (logo + close) -->
     <div class="mob-menu-top">
-      <a href="#" class="nav-logo" style="text-decoration:none;">
-        <div class="nav-logo-icon">
-          <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="48" stroke="#ff0202" stroke-width="4"/>
-            <text x="50" y="57" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="28" fill="#ff0202">TCE</text>
-          </svg>
-        </div>
-        <div class="nav-logo-text">
-          <span class="logo-the">THE</span>
-          <span class="logo-crazy">CRAZY</span>
-          <span class="logo-ent">ENTREPRENEUR</span>
-        </div>
+      <a href="#hero" class="nav-logo" aria-label="TCE Home">
+        <img src="Logo/tce_logo_wide_black-768x184-2-1.webp" alt="The Crazy Entrepreneur Logo" class="brand-logo-img">
       </a>
       <button class="mob-menu-close" id="mobMenuClose" onclick="closeMobMenu()" aria-label="Close menu">&times;</button>
     </div>
@@ -702,68 +681,113 @@
 
 
   <!-- =========================================================
-       GET FREE PLAN + FAQ
+       FREQUENTLY ASKED QUESTIONS — Reference Accordion Layout
        ========================================================= -->
-  <section class="faq-section-new" id="freeplan">
+  <section class="sec-faq-ref" id="faq">
     <div class="wrap">
 
-      <!-- Giant FAQ heading -->
-      <h2 class="faq-giant-title">FAQ</h2>
+      <!-- Section Header -->
+      <div class="sec-head" style="margin-bottom: 48px; text-align: center;">
+        <span class="eyebrow-red">◆ FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="sec-title" style="color: #000000; margin-top: 10px;">GOT QUESTIONS? WE HAVE ANSWERS.</h2>
+        <p style="color: #666666; max-width: 620px; margin: 12px auto 0; font-size: 1.05rem; line-height: 1.6;">
+          Everything you need to know about our creator network, performance attribution, and campaign execution.
+        </p>
+      </div>
 
-      <!-- 2-column accordion grid -->
-      <div class="faq-two-col">
+      <!-- 2-Column Grid (3 Left, 3 Right) -->
+      <div class="faq-ref-grid">
 
-        <!-- Left column -->
-        <div class="faq-col">
-          <div class="faq-item-red open" data-faqred>
-            <div class="faq-item-q">HOW CAN I COLLABORATE WITH TCE AS A BRAND? <i class="fa-solid fa-arrow-up"></i></div>
-            <div class="faq-item-a">Connect with our global partnerships team through our contact form. We'll help you design and execute a campaign that delivers ROI and brand impact.</div>
+        <!-- Left Column (3 FAQs) -->
+        <div class="faq-ref-col">
+          <!-- Item 01 (Open by default) -->
+          <div class="faq-ref-card is-open" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">WHAT IS INFLUENCER MANAGEMENT AND WHAT DOES AN INFLUENCER MANAGEMENT AGENCY DO?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-minus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>Influencer management is the end-to-end support system behind a creator's career. It covers brand partnerships, negotiation, strategy, compliance, and long-term growth planning, so creators can focus on content while we handle the business of turning attention into sustainable income.</p>
+              <p style="margin-top:10px;">An influencer management agency supports creators with brand partnerships, negotiations, contracts, career development, and content strategy, handling admin so influencers focus on creativity, while maximizing growth and long-term commercial success.</p>
+            </div>
           </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">WHICH PLATFORMS DO YOU COVER? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">TikTok, Instagram, YouTube, LinkedIn, X (Twitter), Snapchat, Pinterest, and emerging platforms — across 160+ markets.</div>
+
+          <!-- Item 02 -->
+          <div class="faq-ref-card" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">HOW DOES TCE GUARANTEE HIGH-PERFORMING CREATOR MATCHES?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>We leverage AI-driven audience analytics, engagement fraud auditing, and past conversion benchmarks across 1M+ vetted creators to match your brand with talent proven to convert your target demographic.</p>
+            </div>
           </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">DO YOU WORK WITH SMALL BUDGETS? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">Yes. We work with budgets from $5k micro-campaigns all the way up to $250k+ global enterprise activations.</div>
-          </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">HOW DO YOU SELECT THE RIGHT INFLUENCERS FOR A CAMPAIGN? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">We use AI-powered audience analytics, engagement quality scoring, and brand-fit matching to shortlist only the most relevant creators.</div>
-          </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">WHAT TYPES OF INFLUENCERS DO YOU WORK WITH? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">Nano, Micro, Mid-tier, Macro, and Celebrity creators across all verticals — from tech and finance to fashion and lifestyle.</div>
+
+          <!-- Item 03 -->
+          <div class="faq-ref-card" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">HOW FAST CAN A CAMPAIGN LAUNCH FROM BRIEF TO GO-LIVE?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>Our turnkey agency infrastructure enables rapid 24-hour campaign launches. From initial brief and creator matchmaking to contract execution and content approvals, we move at startup velocity.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Right column -->
-        <div class="faq-col">
-          <div class="faq-item-red open" data-faqred>
-            <div class="faq-item-q">CAN CAMPAIGNS BE CUSTOMIZED FOR MY BRAND? <i class="fa-solid fa-arrow-up"></i></div>
-            <div class="faq-item-a">Absolutely. Every campaign we create is fully tailored to your brand's goals, audience, and voice. From influencer selection and content style to platforms and messaging, we design strategies that align with your objectives—whether it's awareness, engagement, or conversions.</div>
+        <!-- Right Column (3 FAQs) -->
+        <div class="faq-ref-col">
+          <!-- Item 04 (Open by default) -->
+          <div class="faq-ref-card is-open" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">HOW DO YOU TRACK AND MEASURE REAL-TIME CAMPAIGN ROI?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-minus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>Every campaign includes a real-time ROI dashboard tracking Earned Media Value (EMV), ROAS, CPE, custom promo code conversions, and multi-touch attribution reports for complete financial transparency.</p>
+            </div>
           </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">DO YOU HELP WITH CONTENT STRATEGY AND CREATIVE DIRECTION? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">Yes. Our creative team develops full content briefs, hooks, storyboards, and post-production quality reviews for every campaign.</div>
+
+          <!-- Item 05 -->
+          <div class="faq-ref-card" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">DO YOU HANDLE CREATOR CONTRACTS, USAGE RIGHTS &amp; PAYOUTS?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>Yes, 100% turnkey. We manage bulletproof legal contracts, digital rights management for paid ad usage, tax compliance, and automated global payouts across 160+ countries.</p>
+            </div>
           </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">HOW DO YOU MEASURE ROI FROM INFLUENCER CAMPAIGNS? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">We track EMV, ROAS, CPE, CPM, traffic attribution, and conversion data through our real-time analytics dashboard.</div>
-          </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">WHY SHOULD I CHOOSE AN AGENCY INSTEAD OF MANAGING INFLUENCERS IN-HOUSE? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">TCE gives you immediate access to 1M+ vetted creators, legal contracts, fraud detection, and a full campaign team — for a fraction of in-house costs.</div>
-          </div>
-          <div class="faq-item-red" data-faqred>
-            <div class="faq-item-q">HOW DO YOU ENSURE CAMPAIGNS RUN SMOOTHLY FROM START TO FINISH? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-item-a">A dedicated account manager oversees every milestone — from creator outreach and contracts to content approvals and final reporting.</div>
+
+          <!-- Item 06 -->
+          <div class="faq-ref-card" onclick="toggleFaqRef(this)">
+            <div class="faq-ref-q">
+              <span class="faq-ref-title">WHAT CAMPAIGN BUDGET SIZES DOES TCE WORK WITH?</span>
+              <div class="faq-ref-badge"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="faq-ref-a">
+              <p>We build scalable packages tailored to growth startups and enterprise brands alike, ranging from targeted $10k-$25k test activations up to multi-market $250k+ global creator campaigns.</p>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <script>
+  function toggleFaqRef(card) {
+    card.classList.toggle('is-open');
+    const icon = card.querySelector('.faq-ref-badge i');
+    if (icon) {
+      if (card.classList.contains('is-open')) {
+        icon.className = 'fa-solid fa-minus';
+      } else {
+        icon.className = 'fa-solid fa-plus';
+      }
+    }
+  }
+  </script>
 
   <!-- =========================================================
        LET'S WORK TOGETHER BANNER
@@ -1186,28 +1210,10 @@
       });
     });
 
-    /* --- FAQ accordion (old dark style) --- */
-    document.querySelectorAll('[data-faq]').forEach(row => {
-      row.querySelector('.faq-q').addEventListener('click', () => {
-        const isOpen = row.classList.contains('active');
-        document.querySelectorAll('[data-faq]').forEach(r => r.classList.remove('active'));
-        if (!isOpen) row.classList.add('active');
-      });
-    });
-
-
-    /* --- Red FAQ accordion (new 2-col style) --- */
-    document.querySelectorAll('[data-faqred]').forEach(item => {
-      item.querySelector('.faq-item-q').addEventListener('click', () => {
-        item.classList.toggle('open');
-        const icon = item.querySelector('.faq-item-q i');
-        if (icon) {
-          if (item.classList.contains('open')) {
-            icon.className = 'fa-solid fa-arrow-up';
-          } else {
-            icon.className = 'fa-solid fa-chevron-down';
-          }
-        }
+    /* --- White Agency FAQ Accordion --- */
+    document.querySelectorAll('[data-faqwhite]').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('open');
       });
     });
 
@@ -1390,7 +1396,7 @@
       gsap.ticker.lagSmoothing(0);
 
       /* Staggered section reveals */
-      const fadeElements = document.querySelectorAll('.sec-head, .why-headline, .brands-ticker-head, .inf-head-row, .faq-head, .stats-4grid > div, .step-card, .service-card, .inf-card, .faq-item-red, .story-card, .case-card');
+      const fadeElements = document.querySelectorAll('.sec-head, .why-headline, .brands-ticker-head, .inf-head-row, .faq-head, .stats-4grid > div, .step-card, .service-card, .inf-card, .faq-ref-card, .story-card, .case-card');
       fadeElements.forEach((el) => {
         gsap.fromTo(el,
           { opacity: 0.1, y: 25 },
