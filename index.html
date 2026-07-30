@@ -22,6 +22,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Lenis CSS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -72,29 +78,76 @@
           <a href="#contact" class="btn-nav-red" id="navCta">
             Get in touch&nbsp;<span style="font-size:1.1em;">↗</span>
           </a>
-          <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle navigation">
+          <button class="nav-mobile-btn" id="navToggle" onclick="openMobMenu()" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars" id="navIcon"></i>
           </button>
         </div><!-- /.nav-actions -->
 
       </div><!-- /.nav-pill -->
 
-      <!-- Mobile drawer -->
-      <div class="nav-mobile-drawer" id="navDrawer">
-        <ul class="nav-drawer-links">
-          <li><a href="#hero"     class="nav-drawer-link" data-navclose>Home</a></li>
-          <li><a href="#whyus"    class="nav-drawer-link" data-navclose>About</a></li>
-          <li><a href="#services" class="nav-drawer-link" data-navclose>Services</a></li>
-          <li><a href="#network"  class="nav-drawer-link" data-navclose>Industries</a></li>
-          <li><a href="#contact"  class="nav-drawer-link" data-navclose>Contact</a></li>
-        </ul>
-        <a href="#contact" class="btn-nav-red" style="margin-top:10px;width:100%;justify-content:center;" data-navclose>
-          Get in touch ↗
-        </a>
-      </div><!-- /.nav-mobile-drawer -->
-
     </div><!-- /.nav-pill-wrap -->
   </header>
+
+  <!-- =========================================================
+       FULLSCREEN MOBILE MENU OVERLAY
+       ========================================================= -->
+  <div class="mob-menu-overlay" id="mobMenuOverlay" aria-hidden="true">
+    <!-- Top pill bar (logo + close) -->
+    <div class="mob-menu-top">
+      <a href="#" class="nav-logo" style="text-decoration:none;">
+        <div class="nav-logo-icon">
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" stroke="#ff0202" stroke-width="4"/>
+            <text x="50" y="57" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="900" font-size="28" fill="#ff0202">TCE</text>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="logo-the">THE</span>
+          <span class="logo-crazy">CRAZY</span>
+          <span class="logo-ent">ENTREPRENEUR</span>
+        </div>
+      </a>
+      <button class="mob-menu-close" id="mobMenuClose" onclick="closeMobMenu()" aria-label="Close menu">&times;</button>
+    </div>
+
+    <!-- Nav items -->
+    <nav class="mob-menu-nav">
+      <ul class="mob-menu-list">
+        <li class="mob-menu-item" style="--i:1">
+          <a href="#hero" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">01</span><span class="mob-label">Home</span>
+          </a>
+        </li>
+        <li class="mob-menu-item" style="--i:2">
+          <a href="#whyus" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">02</span><span class="mob-label">About</span>
+          </a>
+        </li>
+        <li class="mob-menu-item" style="--i:3">
+          <a href="#services" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">03</span><span class="mob-label">Services</span>
+          </a>
+        </li>
+        <li class="mob-menu-item" style="--i:4">
+          <a href="#network" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">04</span><span class="mob-label">Industries</span>
+          </a>
+        </li>
+        <li class="mob-menu-item" style="--i:5">
+          <a href="#contact" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">05</span><span class="mob-label">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Bottom CTA -->
+    <div class="mob-menu-cta-wrap">
+      <a href="#contact" class="mob-menu-cta" data-mobclose>
+        Get In Touch <span class="mob-cta-arrow">↗</span>
+      </a>
+    </div>
+  </div>
 
   <!-- =========================================================
        HERO
@@ -138,19 +191,19 @@
         <!-- Right — tilted collage -->
         <div class="hero-tilted-collage" aria-hidden="true">
           <div class="tilted-photo-card card-1">
-            <img src="images/red_hero.jpg" alt="Creator studio production">
+            <img src="images/reel1.jpg" alt="Creator Reel 1">
           </div>
           <div class="tilted-photo-card card-2">
-            <img src="images/story1.jpg" alt="Lifestyle creator reel">
+            <img src="images/story1.jpg" alt="Creator Reel 2">
           </div>
           <div class="tilted-photo-card card-3">
-            <img src="images/red_case.jpg" alt="Apparel creator activation">
+            <img src="images/reel3.jpg" alt="Creator Reel 3">
           </div>
           <div class="tilted-photo-card card-4">
-            <img src="images/story2.jpg" alt="Luxury creator reel">
+            <img src="images/story2.jpg" alt="Creator Reel 4">
           </div>
           <div class="tilted-photo-card card-5">
-            <img src="images/luxury_hero.jpg" alt="Performance campaign">
+            <img src="images/reel5.jpg" alt="Creator Reel 5">
           </div>
         </div>
 
@@ -163,10 +216,113 @@
        ========================================================= -->
   <div class="red-marquee-banner" aria-hidden="true">
     <div class="red-marquee-track">
-      <span>CREATOR ● TECH ● MEDIA ● CREATOR ● TECH ● MEDIA ● CREATOR ● TECH ● MEDIA ●&nbsp;&nbsp;&nbsp;</span>
-      <span>CREATOR ● TECH ● MEDIA ● CREATOR ● TECH ● MEDIA ● CREATOR ● TECH ● MEDIA ●&nbsp;&nbsp;&nbsp;</span>
+      <div class="red-marquee-content">
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+      </div>
+
+      <div class="red-marquee-content">
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>CREATOR</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>TECH</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+        <span>MEDIA</span>
+        <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+      </div>
     </div>
   </div>
+
+  <!-- =========================================================
+       TRUSTED BY GLOBAL BRANDS — Dual-Row Infinite Loop Ticker
+       ========================================================= -->
+  <section class="brands-ticker-section" id="brands">
+    <div class="brands-ticker-head">
+      <span class="eyebrow-red">◆ OUR CLIENTS</span>
+      <h2 class="brands-ticker-title">TRUSTED BY GLOBAL BRANDS</h2>
+    </div>
+
+    <!-- Row 1 — scrolls LEFT -->
+    <div class="brands-ticker-wrap">
+      <div class="brands-ticker-track track-left">
+        <div class="brand-logo-item">GOOGLE</div>
+        <div class="brand-logo-item">TIKTOK</div>
+        <div class="brand-logo-item">META</div>
+        <div class="brand-logo-item">AMAZON</div>
+        <div class="brand-logo-item">SAMSUNG</div>
+        <div class="brand-logo-item">LOGITECH</div>
+        <div class="brand-logo-item">REVOLUT</div>
+        <div class="brand-logo-item">NETFLIX</div>
+        <div class="brand-logo-item">CANVA</div>
+        <div class="brand-logo-item">YVES ROCHER</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="brand-logo-item">GOOGLE</div>
+        <div class="brand-logo-item">TIKTOK</div>
+        <div class="brand-logo-item">META</div>
+        <div class="brand-logo-item">AMAZON</div>
+        <div class="brand-logo-item">SAMSUNG</div>
+        <div class="brand-logo-item">LOGITECH</div>
+        <div class="brand-logo-item">REVOLUT</div>
+        <div class="brand-logo-item">NETFLIX</div>
+        <div class="brand-logo-item">CANVA</div>
+        <div class="brand-logo-item">YVES ROCHER</div>
+      </div>
+    </div>
+
+    <!-- Row 2 — scrolls RIGHT -->
+    <div class="brands-ticker-wrap">
+      <div class="brands-ticker-track track-right">
+        <div class="brand-logo-item">ZOOMEX</div>
+        <div class="brand-logo-item">DUKASCOPY</div>
+        <div class="brand-logo-item">B2PRIME</div>
+        <div class="brand-logo-item">8×8</div>
+        <div class="brand-logo-item">IRONFX</div>
+        <div class="brand-logo-item">OPPO</div>
+        <div class="brand-logo-item">GLOSSIER</div>
+        <div class="brand-logo-item">TRANSITION</div>
+        <div class="brand-logo-item">UNITED TEXAS BANK</div>
+        <div class="brand-logo-item">PENS</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="brand-logo-item">ZOOMEX</div>
+        <div class="brand-logo-item">DUKASCOPY</div>
+        <div class="brand-logo-item">B2PRIME</div>
+        <div class="brand-logo-item">8×8</div>
+        <div class="brand-logo-item">IRONFX</div>
+        <div class="brand-logo-item">OPPO</div>
+        <div class="brand-logo-item">GLOSSIER</div>
+        <div class="brand-logo-item">TRANSITION</div>
+        <div class="brand-logo-item">UNITED TEXAS BANK</div>
+        <div class="brand-logo-item">PENS</div>
+      </div>
+    </div>
+  </section>
 
   <!-- =========================================================
        KEY VALUE PROPS
@@ -295,38 +451,6 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       CLIENTELE
-       ========================================================= -->
-  <section class="sec-white" id="clientele" style="padding-top:0;">
-    <div class="wrap">
-      <div class="clientele-box">
-        <div class="clientele-inner">
-          <div class="logos-grid">
-            <div class="logo-box">GOOGLE</div>
-            <div class="logo-box">TIKTOK</div>
-            <div class="logo-box">META</div>
-            <div class="logo-box">AMAZON</div>
-            <div class="logo-box">SAMSUNG</div>
-            <div class="logo-box">GLOSSIER</div>
-            <div class="logo-box">OPPO</div>
-            <div class="logo-box">CANVA</div>
-            <div class="logo-box">NETFLIX</div>
-          </div>
-
-          <div>
-            <h2 class="clientele-title">TCE CLIENTELE</h2>
-            <p class="clientele-desc">
-              TCE partners with fast-scaling consumer brands, tech giants, and B2B market leaders to launch high-converting influencer activations across global ecosystems.
-            </p>
-            <a href="#contact" class="btn-tce-red">
-              Join Our Clientele <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        LEADING INFLUENCERS SLIDER
@@ -782,27 +906,55 @@
        JAVASCRIPT
        ========================================================= -->
   <script>
+  /* Global Mobile Menu Functions */
+  function openMobMenu() {
+    const overlay = document.getElementById('mobMenuOverlay');
+    const navIcon = document.getElementById('navIcon');
+    if (overlay) {
+      overlay.classList.add('mob-open');
+      document.body.style.overflow = 'hidden';
+    }
+    if (navIcon) {
+      navIcon.classList.remove('fa-bars');
+      navIcon.classList.add('fa-xmark');
+    }
+  }
+
+  function closeMobMenu() {
+    const overlay = document.getElementById('mobMenuOverlay');
+    const navIcon = document.getElementById('navIcon');
+    if (overlay) {
+      overlay.classList.remove('mob-open');
+      document.body.style.overflow = '';
+    }
+    if (navIcon) {
+      navIcon.classList.add('fa-bars');
+      navIcon.classList.remove('fa-xmark');
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- Mobile nav toggle --- */
-    const toggle  = document.getElementById('navToggle');
-    const drawer  = document.getElementById('navDrawer');
-    const navIcon = document.getElementById('navIcon');
-
-    toggle.addEventListener('click', () => {
-      drawer.classList.toggle('open');
-      navIcon.classList.toggle('fa-bars');
-      navIcon.classList.toggle('fa-xmark');
+    document.querySelectorAll('[data-mobclose]').forEach(el => {
+      el.addEventListener('click', closeMobMenu);
     });
 
-    /* Close drawer when any drawer link or CTA is clicked */
-    document.querySelectorAll('[data-navclose]').forEach(el => {
-      el.addEventListener('click', () => {
-        drawer.classList.remove('open');
-        navIcon.classList.add('fa-bars');
-        navIcon.classList.remove('fa-xmark');
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobMenu();
     });
+
+    /* --- Automatic Hero Reel Collage Rotation --- */
+    const heroCards = document.querySelectorAll('.tilted-photo-card');
+    if (heroCards.length > 0) {
+      let heroIndex = 0;
+      heroCards[heroIndex].classList.add('in-front');
+
+      setInterval(() => {
+        heroCards.forEach(c => c.classList.remove('in-front'));
+        heroIndex = (heroIndex + 1) % heroCards.length;
+        heroCards[heroIndex].classList.add('in-front');
+      }, 2800);
+    }
 
     /* --- Live World Clocks --- */
     const clocks = {
@@ -1090,6 +1242,96 @@
   <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
+
+  <!-- Lenis JS CDN -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- External Script -->
+  <script src="script.js"></script>
+
+  <!-- =========================================================
+       LENIS SMOOTH SCROLL + GSAP SCROLLTRIGGER
+       ========================================================= -->
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof Lenis === 'undefined') return;
+
+    /* ---- 1. Lenis Smooth Scroll ---- */
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      smoothTouch: false,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    /* Intercept anchor link clicks for smooth Lenis scrolling */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -60, duration: 1.2 });
+          }
+        }
+      });
+    });
+
+    /* Stop/Start Lenis on mobile menu open/close */
+    const origOpen = window.openMobMenu;
+    const origClose = window.closeMobMenu;
+    window.openMobMenu = function() {
+      if (typeof lenis.stop === 'function') lenis.stop();
+      if (origOpen) origOpen();
+    };
+    window.closeMobMenu = function() {
+      if (typeof lenis.start === 'function') lenis.start();
+      if (origClose) origClose();
+    };
+
+    /* ---- 2. GSAP + ScrollTrigger ---- */
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+
+      /* Staggered section reveals */
+      const fadeElements = document.querySelectorAll('.sec-head, .why-headline, .brands-ticker-head, .inf-head-row, .faq-head, .stats-4grid > div, .step-card, .service-card, .inf-card, .faq-item-red, .story-card, .case-card');
+      fadeElements.forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0.1, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      ScrollTrigger.refresh();
+    }
+  });
+  </script>
 
 </body>
 </html>

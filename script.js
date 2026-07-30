@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fieldsContainer.innerHTML = "";
 
     const sectionDiv = document.createElement("div");
-    sectionDiv.className = "form-section-divider";
+    sectionDiv.className = "f-divider";
     sectionDiv.textContent = flow.section;
 
     [...baseFields, sectionDiv, ...flow.fields].forEach((item) => {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const [labelText, type, placeholder, size] = item;
       const fieldCell = document.createElement("div");
-      fieldCell.className = size === "full" ? "field-cell full" : "field-cell";
+      fieldCell.className = size === "full" ? "f-cell full" : "f-cell";
 
       const id = labelText.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       const label = document.createElement("label");
@@ -256,4 +256,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderFlow("brand");
+
+  // 6. Lenis Smooth Scroll Engine
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
+
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Smooth scroll for internal # links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -60, duration: 1.2 });
+          }
+        }
+      });
+    });
+  }
 });
