@@ -68,12 +68,13 @@ html.lenis, html.lenis body { height: auto; }
 /* Whole header is sticky with negative top = announce bar height.
    Result: announce bar scrolls away, pill locks at top. */
 .site-header {
-  position: sticky;
-  top: -37px;
+  position: fixed;
+  top: 18px;
   left: 0;
   width: 100%;
-  z-index: 999;
-  background: var(--bg-black);
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;
 }
 
 /* ---- Red announcement bar ---- */
@@ -91,22 +92,26 @@ html.lenis, html.lenis body { height: auto; }
 }
 .nav-announce-bar strong { font-weight: 900; }
 
-/* ---- Pill container — normal flow inside sticky header ---- */
+/* ---- Pill container — fixed floating pill navbar ---- */
 .nav-pill-wrap {
-  padding: 8px 18px 12px;
-  background: transparent;
+  pointer-events: auto;
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
 }
 .nav-pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  background: #e5e5e5;
+  height: 60px;
+  padding: 6px 8px 6px 24px;
+  background: linear-gradient(180deg, rgba(235, 238, 242, 0.94) 0%, rgba(215, 219, 226, 0.94) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
   border-radius: 100px;
-  padding: 8px 12px;
-  max-width: 1320px;
-  margin: 0 auto;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 /* ---- Logo ---- */
@@ -132,33 +137,73 @@ html.lenis, html.lenis body { height: auto; }
 /* ---- Desktop nav links ---- */
 nav { flex: 1; }
 .nav-links {
-  display: flex; align-items: center; justify-content: center;
-  gap: 6px; list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .nav-link {
-  color: #1a1a1a;
-  background: transparent;
-  font-family: var(--font-h); font-weight: 700; font-size: .875rem;
-  padding: 9px 16px; border-radius: 60px;
-  transition: background .18s, color .18s;
+  color: #111111;
+  font-family: var(--font-h);
+  font-weight: 800;
+  font-size: .9rem;
+  padding: 8px 10px;
+  border-radius: 30px;
+  transition: color 0.2s ease, opacity 0.2s ease;
   white-space: nowrap;
+  text-decoration: none;
 }
-.nav-link:hover { background: rgba(255,255,255,.18); color: #000; }
+.nav-link:hover { color: var(--red); }
 
 /* ---- Nav actions (CTA + hamburger) ---- */
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
-/* Red pill CTA */
+/* Red pill CTA with circle arrow icon */
 .btn-nav-red {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 11px 22px; border-radius: 60px;
-  background: var(--red); color: #fff;
-  font-family: var(--font-h); font-weight: 900; font-size: .875rem;
-  text-decoration: none; border: none; white-space: nowrap;
-  transition: background .2s, transform .2s;
-  box-shadow: 0 4px 18px rgba(255,2,2,.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 22px 5px 6px;
+  border-radius: 60px;
+  background: var(--red);
+  color: #ffffff;
+  font-family: var(--font-h);
+  font-weight: 800;
+  font-size: .88rem;
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 18px rgba(255,2,2,.4);
 }
-.btn-nav-red:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-nav-red:hover {
+  background: #e00000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(255,2,2,.5);
+}
+.nav-cta-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.nav-cta-icon svg {
+  display: block;
+  stroke: #ffffff;
+}
+.btn-nav-red:hover .nav-cta-icon {
+  background: rgba(0, 0, 0, 0.32);
+  transform: translate(1px, -1px);
+}
 
 /* ---- Shared red button used throughout the site ---- */
 .btn-tce-red {
@@ -344,7 +389,7 @@ nav { flex: 1; }
    HERO
    ============================================================ */
 .hero-tce-section {
-  padding: 70px 0 90px;
+  padding: 120px 0 90px;
   background: var(--bg-black);
   position: relative;
   overflow: hidden;
@@ -1350,13 +1395,23 @@ nav { flex: 1; }
 @media (max-width: 1200px) {
   .ft-cols { grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; }
   .ft-cols > *:nth-child(4), .ft-cols > *:nth-child(5) { grid-column: span 1; }
-  .nav-link { padding: 8px 12px; font-size: .82rem; }
+  .nav-links { gap: 12px; }
+  .nav-link { padding: 6px 10px; font-size: .82rem; }
+  .btn-nav-red { padding: 4px 16px 4px 6px; font-size: .82rem; }
+  .nav-cta-icon { width: 30px; height: 30px; font-size: .75rem; }
 }
 
 /* ============================================================
-   RESPONSIVE — 1024px
+   RESPONSIVE — 1024px (Tablets)
    ============================================================ */
 @media (max-width: 1024px) {
+  /* Switch navbar to mobile hamburger drawer to prevent text overflow */
+  nav { display: none; }
+  .btn-nav-red { display: none; }
+  .nav-mobile-btn { display: flex; }
+  .nav-pill { height: 54px; padding: 6px 16px; border-radius: 60px; }
+  .nav-pill-wrap { width: calc(100% - 32px); }
+
   .hero-tce-grid      { grid-template-columns: 1fr; gap: 48px; }
   .hero-tilted-collage { height: 380px; }
   .stats-4grid        { grid-template-columns: repeat(2,1fr); }
@@ -1373,20 +1428,20 @@ nav { flex: 1; }
 }
 
 /* ============================================================
-   RESPONSIVE — 768px
+   RESPONSIVE — 768px (Mobile Devices)
    ============================================================ */
 @media (max-width: 768px) {
   .wrap { width: 100%; padding: 0 20px; }
-  /* pill nav — hide desktop links, show hamburger */
-  nav { display: none; }
-  .nav-mobile-btn { display: block; }
-  .btn-nav-red { display: none; }
-  .nav-pill { border-radius: 60px; padding: 8px 12px; }
-  .nav-pill-wrap { padding: 8px 14px 12px; }
-  .brand-logo-img { height: 26px; max-width: 145px; }
 
-  /* hero */
-  .hero-tce-section { padding: 50px 0 60px; }
+  /* Pill nav — floating fixed positioning & sizing for mobile */
+  .site-header { top: 12px; }
+  .nav-pill-wrap { width: calc(100% - 24px); padding: 0; }
+  .nav-pill { height: 50px; padding: 4px 14px; border-radius: 60px; }
+  .brand-logo-img { height: 25px; max-width: 140px; }
+  .nav-mobile-btn { display: flex; }
+
+  /* Hero — generous top clearance so floating pill header never covers "TCE" headline */
+  .hero-tce-section { padding: 110px 0 60px; }
   .hero-bg-grid-wrap { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .desktop-col { display: none; }
   .hero-bg-overlay { background: linear-gradient(180deg, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.75) 50%, rgba(5,5,5,0.86) 100%); }
@@ -1399,7 +1454,7 @@ nav { flex: 1; }
   .tilted-photo-card.card-4 { transform: rotate(8deg)   translate(  60px, 45px); }
   .tilted-photo-card.card-5 { transform: rotate(-1deg)  translate(   0px,  0px); }
 
-  /* grids */
+  /* Grids */
   .stats-4grid  { grid-template-columns: repeat(2,1fr); }
   .steps-5grid  { grid-template-columns: repeat(2,1fr); }
   .checks-grid  { grid-template-columns: 1fr; }
@@ -1407,7 +1462,7 @@ nav { flex: 1; }
   .fields-grid  { grid-template-columns: 1fr; }
   .logos-grid   { grid-template-columns: repeat(2,1fr); }
 
-  /* footer */
+  /* Footer */
   .ft-nl-row   { flex-direction: column; align-items: flex-start; }
   .ft-nl-form  { min-width: 0; width: 100%; }
   .ft-stats    { grid-template-columns: repeat(2,1fr); }
@@ -1419,9 +1474,14 @@ nav { flex: 1; }
 }
 
 /* ============================================================
-   RESPONSIVE — 480px
+   RESPONSIVE — 480px (Small Phones)
    ============================================================ */
 @media (max-width: 480px) {
+  .site-header { top: 10px; }
+  .nav-pill-wrap { width: calc(100% - 20px); }
+  .nav-pill { height: 46px; padding: 4px 12px; }
+  .brand-logo-img { height: 22px; max-width: 125px; }
+  .hero-tce-section { padding: 100px 0 50px; }
   .stats-4grid  { grid-template-columns: 1fr; }
   .steps-5grid  { grid-template-columns: 1fr; }
   .ft-stats     { grid-template-columns: 1fr; }

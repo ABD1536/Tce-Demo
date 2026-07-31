@@ -36,12 +36,6 @@
        ========================================================= -->
   <header class="site-header" id="siteHeader">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="nav-announce-bar">
-      OUR TEAM WILL ONLY EVER REACH OUT FROM OUR&nbsp;
-      <strong>@THECRAZYENTREPRENEUR.COM</strong>&nbsp;EMAIL
-    </div>
-
     <!-- FLOATING PILL NAV -->
     <div class="nav-pill-wrap">
       <div class="nav-pill">
@@ -54,18 +48,20 @@
         <!-- Desktop nav links -->
         <nav id="mainNav">
           <ul class="nav-links">
-            <li><a href="#hero"      class="nav-link">Home</a></li>
-            <li><a href="#whyus"     class="nav-link">About</a></li>
-            <li><a href="#services"  class="nav-link">Services</a></li>
-            <li><a href="#network"   class="nav-link">Industries</a></li>
-            <li><a href="#contact"   class="nav-link">Contact</a></li>
+            <li><a href="#whyus" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#services" class="nav-link">Technology</a></li>
+            <li><a href="#casestudies" class="nav-link">Work</a></li>
+            <li><a href="#faq" class="nav-link">Resources</a></li>
+            <li><a href="#contact" class="nav-link">Careers</a></li>
           </ul>
         </nav>
 
         <!-- CTA + hamburger -->
         <div class="nav-actions">
           <a href="#contact" class="btn-nav-red" id="navCta">
-            Get in touch&nbsp;<span style="font-size:1.1em;">↗</span>
+            <span class="nav-cta-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+            <span>Get in touch</span>
           </a>
           <button class="nav-mobile-btn" id="navToggle" onclick="openMobMenu()" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars" id="navIcon"></i>
@@ -93,28 +89,33 @@
     <nav class="mob-menu-nav">
       <ul class="mob-menu-list">
         <li class="mob-menu-item" style="--i:1">
-          <a href="#hero" class="mob-menu-link" data-mobclose>
-            <span class="mob-num">01</span><span class="mob-label">Home</span>
+          <a href="#whyus" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">01</span><span class="mob-label">About</span>
           </a>
         </li>
         <li class="mob-menu-item" style="--i:2">
-          <a href="#whyus" class="mob-menu-link" data-mobclose>
-            <span class="mob-num">02</span><span class="mob-label">About</span>
+          <a href="#services" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">02</span><span class="mob-label">Services</span>
           </a>
         </li>
         <li class="mob-menu-item" style="--i:3">
           <a href="#services" class="mob-menu-link" data-mobclose>
-            <span class="mob-num">03</span><span class="mob-label">Services</span>
+            <span class="mob-num">03</span><span class="mob-label">Technology</span>
           </a>
         </li>
         <li class="mob-menu-item" style="--i:4">
-          <a href="#network" class="mob-menu-link" data-mobclose>
-            <span class="mob-num">04</span><span class="mob-label">Industries</span>
+          <a href="#casestudies" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">04</span><span class="mob-label">Work</span>
           </a>
         </li>
         <li class="mob-menu-item" style="--i:5">
+          <a href="#faq" class="mob-menu-link" data-mobclose>
+            <span class="mob-num">05</span><span class="mob-label">Resources</span>
+          </a>
+        </li>
+        <li class="mob-menu-item" style="--i:6">
           <a href="#contact" class="mob-menu-link" data-mobclose>
-            <span class="mob-num">05</span><span class="mob-label">Contact</span>
+            <span class="mob-num">06</span><span class="mob-label">Careers</span>
           </a>
         </li>
       </ul>
@@ -977,6 +978,12 @@
           <div class="ft-office-addr">Queen's Road Central</div>
           <div class="ft-office-clock" id="clockHongKong">—</div>
         </div>
+      </div>
+
+      <!-- Red Announcement Bar -->
+      <div class="nav-announce-bar" style="margin: 36px 0 28px; border-radius: 10px;">
+        OUR TEAM WILL ONLY EVER REACH OUT FROM OUR&nbsp;
+        <strong>@THECRAZYENTREPRENEUR.COM</strong>&nbsp;EMAIL
       </div>
 
       <!-- Bottom bar -->
